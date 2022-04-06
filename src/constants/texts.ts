@@ -7,7 +7,7 @@ const texts = {
     negative: 'Não!',
   },
   EN: {
-    title: 'Ask to the monkey:',
+    title: 'Ask the monkey:',
     askQuestionText: 'Ask',
     askAgainText: 'Ask again',
     positive: 'Yes!',

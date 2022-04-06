@@ -10,7 +10,7 @@ import {
   Answer,
   QuestionInput,
   Button,
-} from './MainPage.spec'
+} from './MainPage.style'
 
 const MainPage = () => {
   const {
@@ -28,34 +28,36 @@ const MainPage = () => {
   const localeText = texts[language]
 
   return (
-    <PageWrapper>
+    <Fragment>
       <LanguageSelector handleLanguage={handleLanguage} />
-      <Monkey />
-      <SubmitWrapper>
-        <Title>{localeText.title}</Title>
-        {!wasAnswered && (
-          <Fragment>
-            <QuestionInput
-              onChange={(e) => handleQuestionInput(e.target.value)}
-              value={question}
-            />
-            <Button disabled={!canClickButton} onClick={() => handleSubmit()}>
-              {localeText.askQuestionText}
-            </Button>
-          </Fragment>
-        )}
-        {wasAnswered && (
-          <Fragment>
-            <Answer positive={answer}>
-              {answer ? localeText.positive : localeText.negative}
-            </Answer>
-            <Button onClick={() => resetForm()}>
-              {localeText.askAgainText}
-            </Button>
-          </Fragment>
-        )}
-      </SubmitWrapper>
-    </PageWrapper>
+      <PageWrapper>
+        <Monkey />
+        <SubmitWrapper>
+          <Title>{localeText.title}</Title>
+          {!wasAnswered && (
+            <Fragment>
+              <QuestionInput
+                onChange={(e) => handleQuestionInput(e.target.value)}
+                value={question}
+              />
+              <Button disabled={!canClickButton} onClick={() => handleSubmit()}>
+                {localeText.askQuestionText}
+              </Button>
+            </Fragment>
+          )}
+          {wasAnswered && (
+            <Fragment>
+              <Answer positive={answer}>
+                {answer ? localeText.positive : localeText.negative}
+              </Answer>
+              <Button onClick={() => resetForm()}>
+                {localeText.askAgainText}
+              </Button>
+            </Fragment>
+          )}
+        </SubmitWrapper>
+      </PageWrapper>
+    </Fragment>
   )
 }
 
