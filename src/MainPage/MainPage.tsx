@@ -1,6 +1,6 @@
-import React from "react";
-import Monkey from "../Monkey";
-import { useMainPage } from "./MainPage.hooks";
+import { Fragment } from 'react'
+import Monkey from '../Monkey'
+import { useMainPage } from './MainPage.hooks'
 import {
   PageWrapper,
   SubmitWrapper,
@@ -8,7 +8,7 @@ import {
   Answer,
   QuestionInput,
   Button,
-} from "./MainPage.spec";
+} from './MainPage.spec'
 
 const MainPage = () => {
   const {
@@ -19,30 +19,33 @@ const MainPage = () => {
     handleQuestionInput,
     handleSubmit,
     resetForm,
-  } = useMainPage();
+  } = useMainPage()
+
   return (
     <PageWrapper>
       <Monkey />
       <SubmitWrapper>
         <Title>Pergunte ao macaco:</Title>
-        <QuestionInput
-          onChange={(e) => handleQuestionInput(e.target.value)}
-          value={question}
-        />
         {!wasAnswered && (
-          <Button disabled={!canClickButton} onClick={() => handleSubmit()}>
-            Perguntar
-          </Button>
+          <Fragment>
+            <QuestionInput
+              onChange={(e) => handleQuestionInput(e.target.value)}
+              value={question}
+            />
+            <Button disabled={!canClickButton} onClick={() => handleSubmit()}>
+              Perguntar
+            </Button>
+          </Fragment>
         )}
         {wasAnswered && (
-          <Answer positive={answer}>{answer ? "Sim" : "Não"}</Answer>
-        )}
-        {wasAnswered && (
-          <Button onClick={() => resetForm()}>Pergunte novamente!</Button>
+          <Fragment>
+            <Answer positive={answer}>{answer ? 'Sim' : 'Não'}</Answer>
+            <Button onClick={() => resetForm()}>Pergunte novamente!</Button>
+          </Fragment>
         )}
       </SubmitWrapper>
     </PageWrapper>
-  );
-};
+  )
+}
 
-export default MainPage;
+export default MainPage

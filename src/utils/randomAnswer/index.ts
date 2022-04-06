@@ -1,3 +1,3 @@
-import { randomAnswer } from "./randomAnswer";
+import { randomAnswer } from './randomAnswer'
 
-export default randomAnswer;
+export default randomAnswer

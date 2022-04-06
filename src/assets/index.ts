@@ -1,3 +1,3 @@
-import { Monkey1 } from "./monkeys";
+import { Monkey1 } from './monkeys'
 
-export { Monkey1 };
+export { Monkey1 }

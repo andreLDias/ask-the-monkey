@@ -1,0 +1,5 @@
+{
+  "command": "npx",
+  "args": ["prettier", "--ignore-unknown", "--write", "${staged}"],
+  "pathMode": "absolute"
+}

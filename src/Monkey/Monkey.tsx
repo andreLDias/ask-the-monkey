@@ -1,8 +1,7 @@
-import React from "react";
-import { Monkey1 } from "../assets";
+import { Monkey1 } from '../assets'
 
 const Monkey = () => {
-  return <Monkey1 />;
-};
+  return <Monkey1 />
+}
 
-export default Monkey;
+export default Monkey

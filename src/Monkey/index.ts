@@ -1,3 +1,3 @@
-import Monkey from "./Monkey";
+import Monkey from './Monkey'
 
-export default Monkey;
+export default Monkey

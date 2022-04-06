@@ -1,8 +1,7 @@
-import React from "react";
-import MainPage from "./MainPage";
+import MainPage from './MainPage'
 
 function App() {
-  return <MainPage />;
+  return <MainPage />
 }
 
-export default App;
+export default App
