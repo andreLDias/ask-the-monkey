@@ -1,9 +1,16 @@
 import { useEffect, useState } from 'react'
 import { randomAnswer } from '../utils'
 
+enum Languages {
+  PT = 'PT',
+  EN = 'EN',
+  ES = 'ES',
+}
+
 const useMainPage = () => {
   const [question, setQuestion] = useState<string>()
   const [answer, setAnswer] = useState<boolean>(false)
+  const [language, setLanguage] = useState<Languages>(Languages.PT)
   const [wasAnswered, setWasAnswered] = useState<boolean>()
   const [canClickButton, setCanClickButton] = useState<boolean>(false)
 
@@ -29,14 +36,20 @@ const useMainPage = () => {
     setQuestion('')
   }
 
+  const handleLanguage = (newLanguage: Languages) => {
+    setLanguage(newLanguage)
+  }
+
   return {
     question,
     answer,
     wasAnswered,
     canClickButton,
+    language,
     handleQuestionInput,
     handleSubmit,
     resetForm,
+    handleLanguage,
   }
 }
 

@@ -1,6 +1,8 @@
 import { Fragment } from 'react'
 import Monkey from '../Monkey'
+import LanguageSelector from '../LanguageSelector'
 import { useMainPage } from './MainPage.hooks'
+import { texts } from '../constants/texts'
 import {
   PageWrapper,
   SubmitWrapper,
@@ -16,16 +18,21 @@ const MainPage = () => {
     answer,
     wasAnswered,
     canClickButton,
+    language,
     handleQuestionInput,
     handleSubmit,
     resetForm,
+    handleLanguage,
   } = useMainPage()
+
+  const localeText = texts[language]
 
   return (
     <PageWrapper>
+      <LanguageSelector handleLanguage={handleLanguage} />
       <Monkey />
       <SubmitWrapper>
-        <Title>Pergunte ao macaco:</Title>
+        <Title>{localeText.title}</Title>
         {!wasAnswered && (
           <Fragment>
             <QuestionInput
@@ -33,14 +40,18 @@ const MainPage = () => {
               value={question}
             />
             <Button disabled={!canClickButton} onClick={() => handleSubmit()}>
-              Perguntar
+              {localeText.askQuestionText}
             </Button>
           </Fragment>
         )}
         {wasAnswered && (
           <Fragment>
-            <Answer positive={answer}>{answer ? 'Sim' : 'Não'}</Answer>
-            <Button onClick={() => resetForm()}>Pergunte novamente!</Button>
+            <Answer positive={answer}>
+              {answer ? localeText.positive : localeText.negative}
+            </Answer>
+            <Button onClick={() => resetForm()}>
+              {localeText.askAgainText}
+            </Button>
           </Fragment>
         )}
       </SubmitWrapper>
