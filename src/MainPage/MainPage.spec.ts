@@ -23,6 +23,8 @@ export const Title = styled.p`
 `
 
 export const Answer = styled.p<{ positive: boolean }>`
+  font-size: 72px;
+  margin: 0;
   color: ${({ positive }) => (positive ? 'green' : 'red')};
 `
 
@@ -32,6 +34,5 @@ export const QuestionInput = styled.input`
 `
 
 export const Button = styled.button`
-  width: 100%;
   font-size: 24px;
 `
